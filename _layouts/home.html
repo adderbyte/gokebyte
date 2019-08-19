@@ -1,0 +1,105 @@
+---
+layout: default
+---
+
+{%- if page.title -%}
+<h1 class="page-heading">{{ page.title }}</h1>
+{%- endif -%}
+
+{{ content }}
+
+{%- if site.posts.size > 0 -%}
+<ul class="posts">
+<script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl  : '/js/index.json',           // url for the .json file containing search index data
+      results   : '#search-results',          // selector for containing search results element
+      template  : '#search-results-template', // selector for Mustache.js template
+      titleMsg  : '<h4>Search results<h4>',   // message attached in front of results (can be empty)
+      emptyMsg  : '<p>Nothing found.</p>'     // shown message if search returns no results
+    });
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div id="context" style=" float: right;
+  display: block;
+  color: black;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;">
+  <form action="/search" method="get">
+  <input type="text" id="search-query" name="q" placeholder="Search ..." autocomplete="off"><button class="fa fa-search" ></button>
+  <!--  -->
+</form>
+</div>
+
+
+	<li>
+
+		<h1 id="posts-label">posts</h1>
+	</li>
+    <li><section id="search-results" style="display: none;"> </section></li>
+	{%- for post in site.posts -%}
+	<li>
+		{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+		<a class="post-link" href="{{ post.url | relative_url }}">
+			<h2 class="post-title">{{ post.title | escape }}</h2>
+		</a>
+		<div class="post-meta">
+			<ul class="post-categories">
+				{%- for tag in post.categories -%}
+				<li>{{ tag }}</li>
+				{%- endfor -%}
+			</ul>
+			<div class="post-date"><i class="icon-calendar"></i>{{ post.date | date: date_format }}</div>
+		</div>
+		<div class="post">
+			{%- if site.show_excerpts -%}
+			{{ post.excerpt }}
+			{%- endif -%}
+		</div>
+	</li>
+	{%- endfor -%}
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+  {{#entries}}
+    <article>
+      <h3>
+        {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
+        <a href="{{url}}">{{title}}</a>
+      </h3>
+      {{#is_post}}
+      <ul>
+        {{#tags}}<li>{{.}} </li>{{/tags}}
+      </ul>
+      {{/is_post}}
+    </article>
+  {{/entries}}
+</script>
+{% endraw %}
+
+</ul>
+
+ 
+
+ <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
+
+	<footer  style="position: fixed;
+    height: 50px;
+   
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-right: 150px;
+    margin-bottom: 0px;">
+		
+	<center> <p align="right" style="margin-right: 100px">contact : adderbyte at icloud dot com</p></center>
+	</footer>
+
+	{%- endif -%}
+
