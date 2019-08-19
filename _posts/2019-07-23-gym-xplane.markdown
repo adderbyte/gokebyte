@@ -24,8 +24,8 @@ Check out the full code implementation  on the Git repository [GYM-XPlane][cbir]
 
 This post  focuses on the  set up of Reinforcement learning environment for autonomous  flight control.  The set up  should at have 2 important characteristics: 
 
-	* realistic (close as much as possible to actual flight scenario)
-	* integrated communication ( between the simulation environment and the reinforcement learning algorithm)
+* realistic (close as much as possible to actual flight scenario)
+* integrated communication ( between the simulation environment and the reinforcement learning algorithm)
 
 
 To be continued ...
@@ -46,8 +46,6 @@ rzp.capture(payment_id, cost)
 	})
 ```
 -->
-
-Check out the full code implementation  on the Git repository [Content-Based-Image-Retrieval][cbir]. 
 
 [cbir]: https://github.com/adderbyte/GYM_XPLANE_ML/tree/master/gym_xplane_final_version
 [air]: https://gym.openai.com/
