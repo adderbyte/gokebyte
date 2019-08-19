@@ -18,7 +18,7 @@ plainwhite:
   tagline: student | researcher
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
-  disqus_shortname: http-127-0-0-1-4000-3
+  disqus_shortname: https-adderbyte-github-io-gokebyte
 
   # generate social links in footer
   social_links:

@@ -47,7 +47,6 @@ rzp.capture(payment_id, cost)
 ```
 -->
 
-Check out the full code implementation  on the Git repository [Content-Based-Image-Retrieval][cbir]. 
 
 [cbir]: https://github.com/adderbyte/content_based_image_retrieval
 
